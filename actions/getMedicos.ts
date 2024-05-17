@@ -2,7 +2,7 @@
 
 export const getMedicos = async () => {
     try {
-        const resp = await fetch(`http://localhost:8080/api/medicos/`);
+        const resp = await fetch(`https://medicos-api-production.up.railway.app/api/medicos/`);
         const data = await resp.json();
 
         return data;

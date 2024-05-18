@@ -1,0 +1,27 @@
+"use server";
+
+import * as z from "zod";
+import bcrypt from "bcryptjs"
+
+import { RegisterSchema } from "@/schemas";
+
+export const register = async (values: z.infer<typeof RegisterSchema>) => {
+    const validatedFields = RegisterSchema.safeParse(values);
+
+    if (!validatedFields.success) {
+        return { error: "Invalid fields!" };
+    }
+
+    const { username, password } = validatedFields.data;
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // await db.user.create({
+    //     data: {
+    //         name,
+    //         email,
+    //         password: hashedPassword
+    //     }
+    // });
+
+    return { success: "Confirmation email sent!" };
+}

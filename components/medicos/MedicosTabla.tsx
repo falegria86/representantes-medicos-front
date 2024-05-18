@@ -3,12 +3,11 @@ import { Medicos } from "@/interfaces/medicos";
 import {
     Table,
     TableBody,
-    TableCaption,
     TableCell,
     TableHead,
     TableHeader,
     TableRow,
-} from "@/components/ui/table"
+} from "@/components/ui/table";
 
 export const MedicosTabla = async () => {
     const medicos: Medicos[] = await getMedicos();
@@ -16,7 +15,6 @@ export const MedicosTabla = async () => {
     return (
         <>
             <Table className="max-w-7xl mx-auto">
-                <TableCaption>Lista de médicos</TableCaption>
                 <TableHeader>
                     <TableRow>
                         <TableHead>ID</TableHead>
@@ -34,10 +32,8 @@ export const MedicosTabla = async () => {
                             <TableCell>{medico.apellido_materno}</TableCell>
                         </TableRow>
                     ))}
-
                 </TableBody>
             </Table>
-
         </>
     )
 }
